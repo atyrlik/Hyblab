@@ -11,11 +11,11 @@ $(".conclusion .button").click(function () {
 
     // display image and text en fonction si agiste ou pas
     if(karma > 0){
-        $("#resultat").attr('src', "images/ResultatAgiste.jpg");
+        $("#resultat").attr('src', "images/ResultatAgiste.png");
         $("#result-text-agiste").show();
     }
     else{
-        $("#resultat").attr('src', "images/ResultatNonAgiste.jpg");
+        $("#resultat").attr('src', "images/ResultatNonAgiste.png");
         $("#result-text-non-agiste").show();
     }
 
@@ -298,6 +298,10 @@ var conversationFragment3 = {
                 {
                     "MsgType" : "Text",
                     "MsgContent" : "Mais bon,on est pas forcément en grande forme. Si t’avais pas commencé à fumer aussi tôt, y aurait peut-être pas 8 millions de morts par an dans le monde à cause de ça ! :-("
+                },
+                {
+                    "MsgType" : "Picture",
+                    "MsgContent" : "images/babysmoke.gif"
                 }
             ],
             "Karma" : 1,
@@ -309,6 +313,10 @@ var conversationFragment3 = {
                 {
                     "MsgType" : "Text",
                     "MsgContent" : "Pas tant que ça. Tu fumes et bois depuis tellement jeune que l’espérance de vie en bonne santé a reculé. Tu te rends compte 8 millions de morts par an dans le monde à cause du tabac ? :-("
+                },
+                {
+                    "MsgType" : "Picture",
+                    "MsgContent" : "images/babysmoke.gif"
                 },
                 {
                     "MsgType" : "Text",
@@ -367,7 +375,7 @@ var conversationFragment2 = {
 var conversationFragment1 = {
     "UserChoices" : [
         {
-            "Text" : "Non, non… Je pensais pas que t’étais si calé niveau technologie !",
+            "Text" : "Non, non… Je pensais pas que t’étais si calée niveau technologie !",
             "BotResponse" : [
                 {
                     "MsgType" : "Text",
