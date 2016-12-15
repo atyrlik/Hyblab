@@ -156,7 +156,10 @@ var triggerBotResponse = function (currentConversation) {
                 else{
                     $(".current-chat .button").unbind();
                     $(".current-chat  .button").attr('class', 'inactive-question');
-                    $(".current-chat .user-answer").attr('class', 'inactive-user-answer');
+                    $(".current-chat .user-answer").attr('class', 'inactive-user-answer').wrap($('<div>', {
+                        class: 'message-wrapper'
+                    }));
+
 
                     // display conclusion
                     $(".conclusion").show();
