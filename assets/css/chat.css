@@ -1,14 +1,61 @@
 body{
-    background: black;
+    /*background: black;*/
+    background-image: url("images/fondfinal1.jpg");
+    background-size: 100%;
 }
 
 .wrapper{
-    background: black;
+    background: transparent;
+}
+
+#header{
+    background: transparent;
+}
+
+#header #woman{
+    background-image: url("images/avatarmeuf.png");
+    background-size: 225px;
+    background-color: transparent;
+    width: 225px;
+    height: 225px;
+}
+
+#header #man{
+    background-image: url("images/avatarmec.png");
+    background-size: 225px;
+    background-color: transparent;
+    width: 225px;
+    height: 225px;
+}
+
+.avatar img{
+    width: 200px;
+    /*margin-left: 15%;*/
+    position: sticky;
+    top: 50px;
+}
+
+.avatar-me img{
+    margin-left: 65%;
+    width: 200px;
+    position: sticky;
+    top: 50px;
+}
+
+.current-chat .message-wrapper{
+    padding-left: 20%;
+    padding-right: 20%;
+    font-family: 'Voltaire', sans-serif;
+}
+
+.current-chat input{
+    border: none;
 }
 
 .current-chat .bot-question img{
     max-width: 15%;
     margin: 20px;
+    text-align: center;
 }
 
 .current-chat .bot-question p{
@@ -17,7 +64,7 @@ body{
 
     text-align: left;
 
-    max-width: 25%;
+    max-width: 40%;
     margin: 5px;
 
     color: #fff;
@@ -34,7 +81,7 @@ body{
 
     text-align: left;
 
-    max-width: 25%;
+    max-width: 40%;
     margin: 5px;
 
     color: #fff;
@@ -49,8 +96,9 @@ body{
 }
 
 .inactive-question img{
-    max-width: 15%;
+    max-width: 25%;
     margin: 5px;
+    background: transparent;
 }
 
 .current-chat .inactive-user-answer{
@@ -68,10 +116,11 @@ body{
     text-align: center;
     line-height: 20px;
     font-size: 12pt;
+    padding-top: 20%;
 }
 
 .current-chat .user-answer .button{
-    max-width: 25%;
+    max-width: 40%;
     margin: 5px;
     text-align: left;
 

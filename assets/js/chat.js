@@ -9,6 +9,7 @@ $(".user-answer input").change(function () {
 
     // desactive input field
     $(".user-answer input").attr('readonly', 'readonly');
+    $(".user-answer input").attr('class', 'inactive-question');
 
     // append bot answer with a delay
     setTimeout(function () {
@@ -22,6 +23,10 @@ $(".user-answer input").change(function () {
         }).wrap(
             $('<div>', {
                 class: 'bot-question'
+            })
+        ).parent().wrap(
+            $('<div>', {
+                class: 'message-wrapper'
             })
         ).parent().appendTo(".current-chat");
 
@@ -43,7 +48,9 @@ var triggerBotResponse = function (currentConversation) {
     // desactive last question
     $(".current-chat .button").unbind();
     $(".current-chat .button").attr('class', 'inactive-question');
-    $(".current-chat .user-answer").attr('class', 'inactive-user-answer');
+    $(".current-chat .user-answer").attr('class', 'inactive-user-answer').wrap($('<div>', {
+        class: 'message-wrapper'
+    }));
 
     // create container for user answer
     var userAnswer = $('<div>', {
@@ -71,14 +78,20 @@ var triggerBotResponse = function (currentConversation) {
 
             // append bot answer with a timeout
             setTimeout(function () {
+
                 choice.BotResponse.forEach(function (msg) {
                     if(msg.MsgType == "Picture"){
+
                         var image = $('<img>', {
                             src: 'images/pic01.jpg',
                             class: 'popout'
                         }).wrap(
                             $('<div>', {
                                 class: 'bot-question'
+                            })
+                        ).parent().wrap(
+                            $('<div>', {
+                                class: 'message-wrapper'
                             })
                         ).parent().appendTo(".current-chat");
 
@@ -88,6 +101,7 @@ var triggerBotResponse = function (currentConversation) {
                         })
                     }
                     else{
+
                         $('<p>', {
                             class: 'popout',
                             text: msg.MsgContent
@@ -95,13 +109,17 @@ var triggerBotResponse = function (currentConversation) {
                             $('<div>', {
                                 class: 'bot-question'
                             })
+                        ).parent().wrap(
+                            $('<div>', {
+                                class: 'message-wrapper'
+                            })
                         ).parent().appendTo(".current-chat");
                     }
                 });
 
                 // scroll
                 $('html,body').animate({
-                        scrollTop: $(".bot-question").offset().top},
+                        scrollTop: $(".bot-question").offset().top + 150},
                     'slow');
 
                 // if conversation isn't ended
@@ -121,93 +139,27 @@ var triggerBotResponse = function (currentConversation) {
     currentMessageLevel++;
 }
 
-var conversationFragment8 = {
-    "UserChoices" : [
-        {
-            "Text" : "Mais, j’espère que vous avez plus de loisirs intimes, ça serait franchement dégoûtant",
-            "BotResponse" : [
-                {
-                    "MsgType" : "Text",
-                    "MsgContent" : "on vit à deux plus longtemps mais pas forcément avec le même partenaire"
-                }
-            ],
-            "NextQuestion" :  null
-        },
-        {
-            "Text" : "J’suis sûr que vous continuez au moins à faire l’amour",
-            "BotResponse" : [
-                {
-                    "MsgType" : "Text",
-                    "MsgContent" : ""
-                }
-            ],
-            "NextQuestion" :  null
-        }
-    ]
-};
-
-var conversationFragment7 = {
-    "UserChoices" : [
-        {
-            "Text" : "Et à part le scrabble, le bridge et la lecture, vous savez faire autre chose dans le futur ?",
-            "BotResponse" : [
-                {
-                    "MsgType" : "Text",
-                    "MsgContent" : "bah si "
-                }
-            ],
-            "NextQuestion" :  conversationFragment8
-        },
-        {
-            "Text" : "",
-            "BotResponse" : [
-                {
-                    "MsgType" : "Text",
-                    "MsgContent" : ""
-                }
-            ],
-            "NextQuestion" :  conversationFragment8
-        }
-    ]
-};
-
 var conversationFragment6 = {
     "UserChoices" : [
         {
-            "Text" : "Ah bon ? ! Vous bougez sérieusement au delà des frontières du canap’ ?",
+            "Text" : "Vu que t’es vieille, je suis sûre que tu joues encore à Pokémon Go ?",
             "BotResponse" : [
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "Et même que nous on part en basse saison parce qu’on est pas des jeunes cons !"
-                },
-                {
-                    "MsgType" : "Picture",
-                    "MsgContent" : ""
-                },
-                {
-                    "MsgType" : "Text",
-                    "MsgContent" : "Tu vois ça c’était en 2014 (j’lavais gardé pour caler le pied de la table holographique) Ben imagine maintenant !"
+                    "MsgContent" : "Mais vieux, c’est quoi être vieux ? Moi, c’est juste toi avec 50 ans d’expérience en plus. Les mêmes références, mais plus de classe ! ;-)"
                 }
             ],
-            "NextQuestion" :  conversationFragment7
+            "NextQuestion" :  null
         },
         {
-            "Text" : "Ouais j’imagine que vous bougez pas mal !",
+            "Text" : "Et est-ce que maintenant jouer à Pokémon Go, c’est être vieux  ?",
             "BotResponse" : [
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "Et surtout en basse saison, histoire d’économiser !"
-                },
-                {
-                    "MsgType" : "Picture",
-                    "MsgContent" : ""
-                },
-                {
-                    "MsgType" : "Text",
-                    "MsgContent" : "Tu vois ça c’était en 2014 (j’lavais gardé pour caler le pied de la table holographique) Ben imagine maintenant !"
+                    "MsgContent" : "Mais vieux, c’est quoi être vieux ? Moi, c’est juste toi avec 50 ans d’expérience en plus. Les mêmes références, mais plus de classe ! ;-)"
                 }
             ],
-            "NextQuestion" :  conversationFragment7
+            "NextQuestion" :  null
         }
     ]
 };
@@ -215,29 +167,37 @@ var conversationFragment6 = {
 var conversationFragment5 = {
     "UserChoices" : [
         {
-            "Text" : "Avec ma santé pourrie, t’as pas l’impression d’être un poids pour les jeunes qui paient les impôts ?",
+            "Text" : "Ah bon ? ! Vous bougez sérieusement au delà des frontières du canapé ?",
             "BotResponse" : [
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "Un poids moi ? Ok, j’avoue un peu. Mais en même temps, les dépenses sont plus dues aux nouvelles technologies et au progrès de santé qu’au vieillissement. Et puis bon les vieux, ça crée des métiers mine de rien. 300 000 postes d’aide à la personne en plus meuf !"
+                    "MsgContent" : "Bah oui, et on part en basse saison pour économiser."
+                },
+                {
+                    "MsgType" : "Picture",
+                    "MsgContent" : ""
                 },
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "Sans compter qu’on bouge pas mal pour se dorer la couenne au soleil, du coup c’est jackpot pour le tourisme :p"
+                    "MsgContent" : "Tu vois ça c’était en 2014 (j’l’avais gardé pour caler le pied de la table holographique) Ben imagine maintenant !"
                 }
             ],
             "NextQuestion" :  conversationFragment6
         },
         {
-            "Text" : "Ca doit coûter cher à la société tous ces abus.",
+            "Text" : "Oui, j’imagine que vous avez plus de temps pour vos loisirs ?",
             "BotResponse" : [
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "Oui c’est vrai, ça coûte cher. Mais en même temps, les dépenses sont plus dues aux nouvelles technologies et au progrès de santé qu’au vieillissement. Et puis bon les vieux, ça crée des métiers mine de rien. 300 000 postes d’aide à la personne en plus meuf !"
+                    "MsgContent" : "C’est clair ! En plus on part en basse saison, histoire d’économiser. "
+                },
+                {
+                    "MsgType" : "Picture",
+                    "MsgContent" : ""
                 },
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "Sans compter qu’on bouge pas mal pour se dorer la couenne au soleil, du coup c’est jackpot pour le tourisme :p"
+                    "MsgContent" : "Tu vois ça c’était en 2014 (j’lavais gardé pour caler le pied de la table holographique) Ben imagine maintenant !"
                 }
             ],
             "NextQuestion" :  conversationFragment6
@@ -248,11 +208,11 @@ var conversationFragment5 = {
 var conversationFragment4 = {
     "UserChoices" : [
         {
-            "Text" : "Ah ouais, j’ai des amis encore en vie ?",
+            "Text" : "Et t’as pas l’impression d’être un poids pour les jeunes qui paient pour ta santé ? ",
             "BotResponse" : [
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "en faut avouer que c’est pas la grande forme mais si tu veux me filer un coup de main, faudrait peut-être que t’arrêtes de manger de la merde. Tiens regarde !"
+                    "MsgContent" : "Un poids moi ? Ok, j’avoue un peu. Les vieux dépendants nous coûtent deux fois plus cher qu’en 2011."
                 },
                 {
                     "MsgType" : "Picture",
@@ -260,17 +220,17 @@ var conversationFragment4 = {
                 },
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "Pan, dans les dents !"
+                    "MsgContent" : "Mais tu sais, on crée de l’emploi mine de rien. 300 000 postes d’aide à la personne en plus ! C’est nous qui consommons le plus hein ! Et puis on voyage !"
                 }
             ],
             "NextQuestion" :  conversationFragment5
         },
         {
-            "Text" : "Vous devez péter la forme avec les progrès de la médecine !",
+            "Text" : "Waouh ! C’est cool ils doivent avoir plein de souvenirs à raconter :-)",
             "BotResponse" : [
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "Ben non pas tant que ça. Regarde !"
+                    "MsgContent" : "Oui mais par contre les vieux dépendants nous coûtent deux fois plus cher qu’en 2011 du coup ! "
                 },
                 {
                     "MsgType" : "Picture",
@@ -278,7 +238,7 @@ var conversationFragment4 = {
                 },
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "Ca te motive à manger moins de merde hein ?"
+                    "MsgContent" : "Mais tu sais, on crée de l’emploi mine de rien. 300 000 postes d’aide à la personne en plus ! C’est nous qui consommons le plus hein ! Et puis on voyage !"
                 }
             ],
             "NextQuestion" :  conversationFragment5
@@ -289,21 +249,29 @@ var conversationFragment4 = {
 var conversationFragment3 = {
     "UserChoices" : [
         {
-            "Text" : "Ah oui les vieux ne voient personne. J’ai retrouvé ça l’autre jour.",
+            "Text" : "Ah oui, tu as - enfin j’ai - des amis encore en vie ?",
             "BotResponse" : [
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "Ouais enfin, je vois quand même pas mal d’amis."
+                    "MsgContent" : "Bah oui, on vit quand même plus longtemps en 2060. Attends, y a 12 fois plus de centenaires qu’à ton époque..."
+                },
+                {
+                    "MsgType" : "Text",
+                    "MsgContent" : "Mais bon,on est pas forcément en grande forme. Si t’avais pas commencé à fumer aussi tôt, y aurait peut-être pas 8 millions de morts par an dans le monde à cause de ça ! :-("
                 }
             ],
             "NextQuestion" :  conversationFragment4
         },
         {
-            "Text" : "Ah, ça a l’air d’être déjà un problème actuel.",
+            "Text" : "Vous devez péter la forme avec les progrès de la médecine !",
             "BotResponse" : [
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "J’arrive quand même à voir pas mal d’amis."
+                    "MsgContent" : "Pas tant que ça. Tu fumes et bois depuis tellement jeune que l’espérance de vie en bonne santé a reculé. Tu te rends compte 8 millions de morts par an dans le monde à cause du tabac ? :-("
+                },
+                {
+                    "MsgType" : "Text",
+                    "MsgContent" : "Mais y a quand même 12 fois plus de centenaires qu’à ton époque !"
                 }
             ],
             "NextQuestion" :  conversationFragment4
@@ -314,21 +282,37 @@ var conversationFragment3 = {
 var conversationFragment2 = {
     "UserChoices" : [
         {
-            "Text" : "Mais en fait je suis devenue une no-life ?",
+            "Text" : "Mais en fait t’es une no-life ? Tu quittes plus les écrans ? :-O",
             "BotResponse" : [
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "Parfois je me sens seule..."
+                    "MsgContent" : "Ouais enfin, je vois quand même pas mal d’amis."
+                },
+                {
+                    "MsgType" : "Picture",
+                    "MsgContent" : ""
+                },
+                {
+                    "MsgType" : "Text",
+                    "MsgContent" : "Mais bon, c’est vrai que des fois  je me sens un peu seule."
                 }
             ],
             "NextQuestion" :  conversationFragment3
         },
         {
-            "Text" : "Mais tu vois des gens sinon ?",
+            "Text" : "T’as dû te faire plein de potes sur les réseaux sociaux ! :D",
             "BotResponse" : [
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "Parfois je me sens seule."
+                    "MsgContent" : "Ouais, et je les vois pas mal dans la vraie vie aussi !"
+                },
+                {
+                    "MsgType" : "Picture",
+                    "MsgContent" : ""
+                },
+                {
+                    "MsgType" : "Text",
+                    "MsgContent" : "Mais bon, c’est vrai que des fois  je me sens un peu seule."
                 }
             ],
             "NextQuestion" :  conversationFragment3
@@ -339,21 +323,29 @@ var conversationFragment2 = {
 var conversationFragment1 = {
     "UserChoices" : [
         {
-            "Text" : "Ah bah je m’en sors bien au niveau technologie, j’aurais pas cru à 80 ans ! ^^",
+            "Text" : "Non, non… Je pensais pas que t’étais si calé niveau technologie !",
             "BotResponse" : [
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "Bah tu crois quoi, je suis quand même équipé. Regarde, t’es en 2017. Y a quoi ? Internet, Facebook... Mais t’es dépassé mon pauvre. T’imagines même pas sur quel outil je suis là !"
+                    "MsgContent" : "Tu crois quoi… Je suis super bien équipée. En 2017, vous êtes seulement au début de la révolution technologique ! "
+                },
+                {
+                    "MsgType" : "Picture",
+                    "MsgContent" : ""
                 }
             ],
             "NextQuestion" :  conversationFragment2
         },
         {
-            "Text" : "Mais comment tu... Comment je fais pour me contacter ?",
+            "Text" : "Non, non… Mais comment tu fais pour me parler ?",
             "BotResponse" : [
                 {
                     "MsgType" : "Text",
-                    "MsgContent" : "Je suis super bien équipé. Toi, t’es en 2017, y a Internet, Facebook… Mais t’imagines même pas avec quel outil je te parle là."
+                    "MsgContent" : "Bah je suis super bien équipée. En 2017, vous êtes seulement au début de la révolution technologique !"
+                },
+                {
+                    "MsgType" : "Picture",
+                    "MsgContent" : ""
                 }
             ],
             "NextQuestion" :  conversationFragment2
