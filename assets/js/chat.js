@@ -186,7 +186,7 @@ var triggerBotResponse = function (currentConversation) {
 var endFragment = {
     "UserChoices" : [
         {
-            "Text" : "Finir la conversation",
+            "Text" : "OK ! Je retourne en 2017. On se donne rendez-vous dans 50 ans. Au revoir...",
             "BotResponse" : [
                 {
                     "MsgType" : "Text",
