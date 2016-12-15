@@ -1,7 +1,17 @@
 body{
     /*background: black;*/
-    background-image: url("images/fondfinal1.jpg");
+    background-image: url("images/fondtreslong.png");
     background-size: 100%;
+}
+
+.conclusion{
+    padding-left: 20%;
+    padding-right: 20%;
+    text-align: center;
+    display: none;
+
+    color: white;
+    font-family: 'Voltaire', sans-serif;
 }
 
 .wrapper{
@@ -10,6 +20,10 @@ body{
 
 #header{
     background: transparent;
+}
+
+#header{
+    font-family: 'Voltaire', sans-serif;
 }
 
 #header #woman{
@@ -42,10 +56,13 @@ body{
     top: 50px;
 }
 
+.current-chat{
+    font-family: 'Voltaire', sans-serif;
+}
+
 .current-chat .message-wrapper{
     padding-left: 20%;
     padding-right: 20%;
-    font-family: 'Voltaire', sans-serif;
 }
 
 .current-chat input{

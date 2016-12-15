@@ -2,6 +2,30 @@
  * Created by alexandre on 13/12/16.
  */
 
+// Pour savoir si agiste ou pas
+var karma = 0;
+
+// display result
+$(".conclusion .button").click(function () {
+    $(".conclusion .button").hide();
+
+    // display image en fonction si agiste ou pas
+    if(karma > 0)
+        $("#resultat").attr('src', "images/pic02.jpg");
+    else
+        $("#resultat").attr('src', "images/pic07.jpg");
+});
+
+$("#woman").click(function () {
+    $("#chatZone .avatar img").attr('src', "images/avatarmeuf.png");
+    $("#chatZone .avatar-me img").attr('src', "images/avatarmeuf.png");
+});
+
+$("#man").click(function () {
+    $("#chatZone .avatar img").attr('src', "images/avatarmec.png");
+    $("#chatZone .avatar-me img").attr('src', "images/avatarmec.png");
+});
+
 // after first user text input
 $(".user-answer input").change(function () {
     // desactive question
@@ -70,14 +94,17 @@ var triggerBotResponse = function (currentConversation) {
             $(".userPossibleChoice").toggle(false);
             button.toggle(true);
 
-            // play sound
-            $("#audioNotification").get(0).play();
+            // update karma
+            karma = karma + choice.Karma;
 
             // desactive last question
             $(".current-chat .bot-question").attr('class', 'inactive-question');
 
             // append bot answer with a timeout
             setTimeout(function () {
+
+                // play sound
+                $("#audioNotification").get(0).play();
 
                 choice.BotResponse.forEach(function (msg) {
                     if(msg.MsgType == "Picture"){
@@ -123,12 +150,16 @@ var triggerBotResponse = function (currentConversation) {
                     'slow');
 
                 // if conversation isn't ended
-                if(choice.NextQuestion != null)
-                    triggerBotResponse(choice.NextQuestion)
+                if(choice.NextQuestion != null){
+                    triggerBotResponse(choice.NextQuestion);
+                }
                 else{
                     $(".current-chat .button").unbind();
                     $(".current-chat  .button").attr('class', 'inactive-question');
                     $(".current-chat .user-answer").attr('class', 'inactive-user-answer');
+
+                    // display conclusion
+                    $(".conclusion").show();
                 }
             }, 500)
 
@@ -149,6 +180,7 @@ var conversationFragment6 = {
                     "MsgContent" : "Mais vieux, c’est quoi être vieux ? Moi, c’est juste toi avec 50 ans d’expérience en plus. Les mêmes références, mais plus de classe ! ;-)"
                 }
             ],
+            "Karma" : 1,
             "NextQuestion" :  null
         },
         {
@@ -159,6 +191,7 @@ var conversationFragment6 = {
                     "MsgContent" : "Mais vieux, c’est quoi être vieux ? Moi, c’est juste toi avec 50 ans d’expérience en plus. Les mêmes références, mais plus de classe ! ;-)"
                 }
             ],
+            "Karma" : -1,
             "NextQuestion" :  null
         }
     ]
@@ -182,6 +215,7 @@ var conversationFragment5 = {
                     "MsgContent" : "Tu vois ça c’était en 2014 (j’l’avais gardé pour caler le pied de la table holographique) Ben imagine maintenant !"
                 }
             ],
+            "Karma" : 1,
             "NextQuestion" :  conversationFragment6
         },
         {
@@ -200,6 +234,7 @@ var conversationFragment5 = {
                     "MsgContent" : "Tu vois ça c’était en 2014 (j’lavais gardé pour caler le pied de la table holographique) Ben imagine maintenant !"
                 }
             ],
+            "Karma" : -1,
             "NextQuestion" :  conversationFragment6
         }
     ]
@@ -223,6 +258,7 @@ var conversationFragment4 = {
                     "MsgContent" : "Mais tu sais, on crée de l’emploi mine de rien. 300 000 postes d’aide à la personne en plus ! C’est nous qui consommons le plus hein ! Et puis on voyage !"
                 }
             ],
+            "Karma" : 1,
             "NextQuestion" :  conversationFragment5
         },
         {
@@ -241,6 +277,7 @@ var conversationFragment4 = {
                     "MsgContent" : "Mais tu sais, on crée de l’emploi mine de rien. 300 000 postes d’aide à la personne en plus ! C’est nous qui consommons le plus hein ! Et puis on voyage !"
                 }
             ],
+            "Karma" : -1,
             "NextQuestion" :  conversationFragment5
         }
     ]
@@ -260,6 +297,7 @@ var conversationFragment3 = {
                     "MsgContent" : "Mais bon,on est pas forcément en grande forme. Si t’avais pas commencé à fumer aussi tôt, y aurait peut-être pas 8 millions de morts par an dans le monde à cause de ça ! :-("
                 }
             ],
+            "Karma" : 1,
             "NextQuestion" :  conversationFragment4
         },
         {
@@ -274,6 +312,7 @@ var conversationFragment3 = {
                     "MsgContent" : "Mais y a quand même 12 fois plus de centenaires qu’à ton époque !"
                 }
             ],
+            "Karma" : -1,
             "NextQuestion" :  conversationFragment4
         }
     ]
@@ -297,6 +336,7 @@ var conversationFragment2 = {
                     "MsgContent" : "Mais bon, c’est vrai que des fois  je me sens un peu seule."
                 }
             ],
+            "Karma" : 1,
             "NextQuestion" :  conversationFragment3
         },
         {
@@ -315,6 +355,7 @@ var conversationFragment2 = {
                     "MsgContent" : "Mais bon, c’est vrai que des fois  je me sens un peu seule."
                 }
             ],
+            "Karma" : -1,
             "NextQuestion" :  conversationFragment3
         }
     ]
@@ -334,6 +375,7 @@ var conversationFragment1 = {
                     "MsgContent" : ""
                 }
             ],
+            "Karma" : 1,
             "NextQuestion" :  conversationFragment2
         },
         {
@@ -348,6 +390,7 @@ var conversationFragment1 = {
                     "MsgContent" : ""
                 }
             ],
+            "Karma" : -1,
             "NextQuestion" :  conversationFragment2
         }
     ]
