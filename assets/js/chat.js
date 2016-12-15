@@ -11,9 +11,9 @@ $(".conclusion .button").click(function () {
 
     // display image en fonction si agiste ou pas
     if(karma > 0)
-        $("#resultat").attr('src', "images/pic02.jpg");
+        $("#resultat").attr('src', "images/ResultatAgiste.jpg");
     else
-        $("#resultat").attr('src', "images/pic07.jpg");
+        $("#resultat").attr('src', "images/ResultatNonAgiste.jpg");
 });
 
 $("#woman").click(function () {
@@ -110,7 +110,7 @@ var triggerBotResponse = function (currentConversation) {
                     if(msg.MsgType == "Picture"){
 
                         var image = $('<img>', {
-                            src: 'images/pic01.jpg',
+                            src: msg.MsgContent,
                             class: 'popout'
                         }).wrap(
                             $('<div>', {
@@ -124,7 +124,7 @@ var triggerBotResponse = function (currentConversation) {
 
                         //open img full size
                         image.click(function () {
-                            window.open('images/pic01.jpg', "_blank", "menubar=1,resizable=1");
+                            window.open(msg.MsgContent, "_blank", "menubar=1,resizable=1");
                         })
                     }
                     else{
@@ -208,7 +208,7 @@ var conversationFragment5 = {
                 },
                 {
                     "MsgType" : "Picture",
-                    "MsgContent" : ""
+                    "MsgContent" : "images/SeniorsTourisme.jpg"
                 },
                 {
                     "MsgType" : "Text",
@@ -227,7 +227,7 @@ var conversationFragment5 = {
                 },
                 {
                     "MsgType" : "Picture",
-                    "MsgContent" : ""
+                    "MsgContent" : "images/SeniorsTourisme.jpg"
                 },
                 {
                     "MsgType" : "Text",
@@ -250,10 +250,6 @@ var conversationFragment4 = {
                     "MsgContent" : "Un poids moi ? Ok, j’avoue un peu. Les vieux dépendants nous coûtent deux fois plus cher qu’en 2011."
                 },
                 {
-                    "MsgType" : "Picture",
-                    "MsgContent" : ""
-                },
-                {
                     "MsgType" : "Text",
                     "MsgContent" : "Mais tu sais, on crée de l’emploi mine de rien. 300 000 postes d’aide à la personne en plus ! C’est nous qui consommons le plus hein ! Et puis on voyage !"
                 }
@@ -267,10 +263,6 @@ var conversationFragment4 = {
                 {
                     "MsgType" : "Text",
                     "MsgContent" : "Oui mais par contre les vieux dépendants nous coûtent deux fois plus cher qu’en 2011 du coup ! "
-                },
-                {
-                    "MsgType" : "Picture",
-                    "MsgContent" : ""
                 },
                 {
                     "MsgType" : "Text",
@@ -329,7 +321,7 @@ var conversationFragment2 = {
                 },
                 {
                     "MsgType" : "Picture",
-                    "MsgContent" : ""
+                    "MsgContent" : "images/SeniorsAmis.jpg"
                 },
                 {
                     "MsgType" : "Text",
@@ -348,7 +340,7 @@ var conversationFragment2 = {
                 },
                 {
                     "MsgType" : "Picture",
-                    "MsgContent" : ""
+                    "MsgContent" : "images/SeniorsAmis.jpg"
                 },
                 {
                     "MsgType" : "Text",
@@ -372,7 +364,7 @@ var conversationFragment1 = {
                 },
                 {
                     "MsgType" : "Picture",
-                    "MsgContent" : ""
+                    "MsgContent" : "images/SeniorsConnectes.jpg"
                 }
             ],
             "Karma" : 1,
@@ -387,7 +379,7 @@ var conversationFragment1 = {
                 },
                 {
                     "MsgType" : "Picture",
-                    "MsgContent" : ""
+                    "MsgContent" : "images/seniorsConnectes.jpg"
                 }
             ],
             "Karma" : -1,

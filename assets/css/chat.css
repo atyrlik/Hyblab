@@ -67,10 +67,11 @@ body{
 
 .current-chat input{
     border: none;
+    font-family: 'Voltaire', sans-serif;
 }
 
 .current-chat .bot-question img{
-    max-width: 15%;
+    max-width: 35%;
     margin: 20px;
     text-align: center;
 }
