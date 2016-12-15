@@ -1,0 +1,91 @@
+body{
+    background: black;
+}
+
+.wrapper{
+    background: black;
+}
+
+.current-chat .bot-question img{
+    max-width: 15%;
+    margin: 20px;
+    /*box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF00B4, 0 0 35px #FF00B4, 0 0 40px #FF00B4;*/
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 40px #FF00B4;
+}
+
+.current-chat .bot-question p{
+    line-height: 20px;
+    font-size: 12pt;
+
+    text-align: left;
+
+    max-width: 25%;
+    margin: 20px;
+
+    color: #fff;
+
+    padding: 1.65em 3em 1.65em 3em;
+
+    /*box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF00B4, 0 0 35px #FF00B4, 0 0 40px #FF00B4;*/
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 30px #FF00B4,
+    inset 0 0 5px #fff, inset 0 0 10px #fff, inset 0 0 30px #FF00B4;
+    border-radius: 10px;
+}
+
+.inactive-question{
+    line-height: 20px;
+    font-size: 12pt;
+
+    text-align: left;
+
+    max-width: 25%;
+    margin: 5px;
+
+    color: #fff;
+
+    padding: 0.65em 3em 0.65em 3em;
+}
+
+.inactive-question p{
+    text-align: left;
+}
+
+.inactive-question img{
+    max-width: 15%;
+    margin: 5px;
+}
+
+.current-chat .user-answer{
+    text-align: right;
+    line-height: 20px;
+    font-size: 12pt;
+}
+
+.current-chat .user-answer .button{
+    max-width: 20%;
+    margin: 20px;
+    text-align: left;
+
+    background: transparent;
+    /*box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #6E00FF, 0 0 35px #6E00FF, 0 0 40px #6E00FF;*/
+
+    padding: 1.65em 3em 1.65em 3em;
+
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 30px #6E00FF,
+    inset 0 0 5px #fff, inset 0 0 10px #fff, inset 0 0 30px #6E00FF;
+}
+
+.popout {
+    animation: popout 1s ease;
+    -webkit-animation: popout 1s ease;
+}
+@keyframes popout {
+    from{transform:scale(0)}
+    /*80%{transform:scale(1.2)}*/
+    to{transform:scale(1)}
+}
+@-webkit-keyframes popout {
+    from{-webkit-transform:scale(0)}
+    /*80%{-webkit-transform:scale(1.2)}*/
+    to{-webkit-transform:scale(1)}
+}
