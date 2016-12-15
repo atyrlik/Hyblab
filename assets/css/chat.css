@@ -18,6 +18,18 @@ body{
     display: none;
 }
 
+.conclusion .credit{
+    line-height: 20px;
+    margin-top: 100px;
+    color: white;
+    font-family: 'Voltaire', sans-serif;
+    display: none;
+}
+
+.conclusion .credit p, .conclusion .credit h3{
+    text-align: center;
+}
+
 .conclusion h2{
     color: white;
     font-family: 'Voltaire', sans-serif;

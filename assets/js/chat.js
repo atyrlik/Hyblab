@@ -22,8 +22,8 @@ $(".conclusion .button").click(function () {
 });
 
 $("#woman").click(function () {
-    $("#chatZone .avatar img").attr('src', "images/avatarmeuf.png");
-    $("#chatZone .avatar-me img").attr('src', "images/avatarmeuf.png");
+    $("#chatZone .avatar img").attr('src', "images/avatarmamie.png");
+    $("#chatZone .avatar-me img").attr('src', "images/avatarjeune.png");
 });
 
 $("#man").click(function () {
@@ -168,6 +168,9 @@ var triggerBotResponse = function (currentConversation) {
 
                     // display conclusion
                     $(".conclusion").show();
+
+                    // display credit
+                    $(".conclusion .credit").show();
                 }
             }, 500)
 
