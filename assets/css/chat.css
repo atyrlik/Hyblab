@@ -91,7 +91,7 @@ body{
 .current-chat input{
     border: none;
     font-family: 'Voltaire', sans-serif;
-    width: 45%;
+    width: 55%;
 }
 
 .current-chat .bot-question img{
