@@ -1,6 +1,6 @@
 body{
     /*background: black;*/
-    background-image: url("images/fondtreslong.png");
+    background-image: url("images/fondfinaltreslong.jpg");
     background-size: 100%;
 }
 
@@ -10,6 +10,15 @@ body{
     text-align: center;
     display: none;
 
+    color: white;
+    font-family: 'Voltaire', sans-serif;
+}
+
+.conclusion #result-text-non-agiste, .conclusion #result-text-agiste{
+    display: none;
+}
+
+.conclusion h2{
     color: white;
     font-family: 'Voltaire', sans-serif;
 }
@@ -76,6 +85,9 @@ body{
     max-width: 35%;
     margin: 20px;
     text-align: center;
+    border: solid #FF6400;
+    border-width: 1px;
+    border-radius: 10px;
 }
 
 .current-chat .bot-question p{
@@ -88,7 +100,7 @@ body{
     margin: 5px;
 
     color: #fff;
-    background: orangered;
+    background: #FF6400;
 
     padding: 1.0em 0.65em 1.0em 0.65em;
 
@@ -105,7 +117,7 @@ body{
     margin: 5px;
 
     color: #fff;
-    background: orangered;
+    background: #FF6400;
     border-radius: 10px;
 
     padding: 1.0em 0.65em 1.0em 0.65em;
@@ -127,7 +139,7 @@ body{
 }
 
 .current-chat .inactive-user-answer .inactive-question{
-    background: deeppink;
+    background: #FF00B4;
     border-radius: 10px;
 }
 
@@ -149,7 +161,7 @@ body{
     padding: 1.0em 0.65em 1.0em 0.65em;
 
     background: white;
-    color: rebeccapurple;
+    color: #6E00FF;
 
     /*box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 30px #6E00FF,*/
     /*inset 0 0 5px #fff, inset 0 0 10px #fff, inset 0 0 30px #6E00FF;*/

@@ -9,11 +9,16 @@ var karma = 0;
 $(".conclusion .button").click(function () {
     $(".conclusion .button").hide();
 
-    // display image en fonction si agiste ou pas
-    if(karma > 0)
+    // display image and text en fonction si agiste ou pas
+    if(karma > 0){
         $("#resultat").attr('src', "images/ResultatAgiste.jpg");
-    else
+        $("#result-text-agiste").show();
+    }
+    else{
         $("#resultat").attr('src', "images/ResultatNonAgiste.jpg");
+        $("#result-text-non-agiste").show();
+    }
+
 });
 
 $("#woman").click(function () {
@@ -43,7 +48,7 @@ $(".user-answer input").change(function () {
 
         $('<p>', {
             class: 'popout',
-            text: "\"" + $(".user-answer input").val() + "\"... J’ai que ça à me dire ? Je me rappelle que j’étais un peu con, mais à ce point-là..! -_-"
+            text: "\"" + $(".user-answer input").val() + "\"... Sérieusement, t’as que ça à me dire ? -_-"
         }).wrap(
             $('<div>', {
                 class: 'bot-question'
