@@ -24,11 +24,13 @@ $(".conclusion .button").click(function () {
 $("#woman").click(function () {
     $("#chatZone .avatar img").attr('src', "images/avatarmamie.png");
     $("#chatZone .avatar-me img").attr('src', "images/avatarjeune.png");
+
 });
 
 $("#man").click(function () {
     $("#chatZone .avatar img").attr('src', "images/avatarmec.png");
     $("#chatZone .avatar-me img").attr('src', "images/avatarmec.png");
+
 });
 
 // after first user text input
