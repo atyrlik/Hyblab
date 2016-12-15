@@ -9,8 +9,6 @@ body{
 .current-chat .bot-question img{
     max-width: 15%;
     margin: 20px;
-    /*box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF00B4, 0 0 35px #FF00B4, 0 0 40px #FF00B4;*/
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 40px #FF00B4;
 }
 
 .current-chat .bot-question p{
@@ -20,15 +18,13 @@ body{
     text-align: left;
 
     max-width: 25%;
-    margin: 20px;
+    margin: 5px;
 
     color: #fff;
+    background: orangered;
 
-    padding: 1.65em 3em 1.65em 3em;
+    padding: 1.0em 0.65em 1.0em 0.65em;
 
-    /*box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF00B4, 0 0 35px #FF00B4, 0 0 40px #FF00B4;*/
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 30px #FF00B4,
-    inset 0 0 5px #fff, inset 0 0 10px #fff, inset 0 0 30px #FF00B4;
     border-radius: 10px;
 }
 
@@ -42,8 +38,10 @@ body{
     margin: 5px;
 
     color: #fff;
+    background: orangered;
+    border-radius: 10px;
 
-    padding: 0.65em 3em 0.65em 3em;
+    padding: 1.0em 0.65em 1.0em 0.65em;
 }
 
 .inactive-question p{
@@ -55,24 +53,38 @@ body{
     margin: 5px;
 }
 
-.current-chat .user-answer{
+.current-chat .inactive-user-answer{
     text-align: right;
     line-height: 20px;
     font-size: 12pt;
 }
 
+.current-chat .inactive-user-answer .inactive-question{
+    background: deeppink;
+    border-radius: 10px;
+}
+
+.current-chat .user-answer{
+    text-align: center;
+    line-height: 20px;
+    font-size: 12pt;
+}
+
 .current-chat .user-answer .button{
-    max-width: 20%;
-    margin: 20px;
+    max-width: 25%;
+    margin: 5px;
     text-align: left;
 
-    background: transparent;
+    /*background: transparent;*/
     /*box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #6E00FF, 0 0 35px #6E00FF, 0 0 40px #6E00FF;*/
 
-    padding: 1.65em 3em 1.65em 3em;
+    padding: 1.0em 0.65em 1.0em 0.65em;
 
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 30px #6E00FF,
-    inset 0 0 5px #fff, inset 0 0 10px #fff, inset 0 0 30px #6E00FF;
+    background: white;
+    color: rebeccapurple;
+
+    /*box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 30px #6E00FF,*/
+    /*inset 0 0 5px #fff, inset 0 0 10px #fff, inset 0 0 30px #6E00FF;*/
 }
 
 .popout {

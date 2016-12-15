@@ -43,6 +43,7 @@ var triggerBotResponse = function (currentConversation) {
     // desactive last question
     $(".current-chat .button").unbind();
     $(".current-chat .button").attr('class', 'inactive-question');
+    $(".current-chat .user-answer").attr('class', 'inactive-user-answer');
 
     // create container for user answer
     var userAnswer = $('<div>', {
@@ -109,6 +110,7 @@ var triggerBotResponse = function (currentConversation) {
                 else{
                     $(".current-chat .button").unbind();
                     $(".current-chat  .button").attr('class', 'inactive-question');
+                    $(".current-chat .user-answer").attr('class', 'inactive-user-answer');
                 }
             }, 500)
 
