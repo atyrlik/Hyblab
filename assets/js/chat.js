@@ -183,6 +183,22 @@ var triggerBotResponse = function (currentConversation) {
     currentMessageLevel++;
 }
 
+var endFragment = {
+    "UserChoices" : [
+        {
+            "Text" : "Finir la conversation",
+            "BotResponse" : [
+                {
+                    "MsgType" : "Text",
+                    "MsgContent" : "..."
+                }
+            ],
+            "Karma" : 0,
+            "NextQuestion" :  null
+        }
+    ]
+};
+
 var conversationFragment6 = {
     "UserChoices" : [
         {
@@ -194,7 +210,7 @@ var conversationFragment6 = {
                 }
             ],
             "Karma" : 1,
-            "NextQuestion" :  null
+            "NextQuestion" :  endFragment
         },
         {
             "Text" : "Et est-ce que maintenant jouer à Pokémon Go, c’est être vieux  ?",
@@ -205,7 +221,7 @@ var conversationFragment6 = {
                 }
             ],
             "Karma" : -1,
-            "NextQuestion" :  null
+            "NextQuestion" :  endFragment
         }
     ]
 };
